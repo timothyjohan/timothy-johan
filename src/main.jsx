@@ -8,7 +8,13 @@ import Template from './components/Template'
 const router = createBrowserRouter([
   {
     path:"/",
-    element: <Template />
+    element: <Template />,
+    children:[
+      {
+        path:"",
+        element: <Home />
+      }
+    ]
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(

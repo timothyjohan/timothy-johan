@@ -1,7 +1,13 @@
 export default function Home(){
     return(
         <>
-            <h1>hello home</h1>
+            <div className="bg-[#222831] min-h-[60vh]">
+
+            </div>
+
+            <div className="h-[100vh]">
+
+            </div>
         </>
     )
 }
