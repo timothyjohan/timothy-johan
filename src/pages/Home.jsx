@@ -1,4 +1,5 @@
 import { Fade } from "react-awesome-reveal";
+import Cards from "../components/Cards";
 
 export default function Home(){
     return(
@@ -55,7 +56,7 @@ export default function Home(){
                             </p>
                         </Fade>
                     </div>
-                    <div className="xl:order-2 hide md:mt-20 lg:ml-20">
+                    <div className="xl:order-2  md:mt-14 lg:ml-20">
                         <Fade>
                             <img src="/blue-gear.webp" className="xl:w-80 w-60 ml-auto animate-spin" style={{animationDuration: '7s'}} />
                             <img src="/blue-gear.webp" className="xl:w-64 w-44 ml-auto mr-20 animate-spin" style={{animationDuration: '5s'}} />
@@ -68,6 +69,27 @@ export default function Home(){
 
             </div>
 
+            {/* What can I do? */}
+
+            <div className="mt-24 lg:mt-40 mx-10 xl:mx-44">
+                <h1 className="text-center font-bold text-3xl">What can I do for you?</h1>
+                <div className="mt-10 grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-14">
+                    <Fade cascade direction="right" triggerOnce>
+                        <Cards title="Web Design" desc="I can help you design your web to your likings while still discussing with you about it" img="/web-design.webp"/>
+
+                        <Cards title="Backend Web Programming" desc="Not feeling appreciated for what you did because it has no visual impact? don't worry I'll take it from here" img="/backend.png"/>
+
+                        <Cards title="Tutoring" desc="You don't know what you're doing? don't worry I can help you understand it even though I'll have to learn it first. I assure you that you won't leave with nothing!" img="/cat-using-laptop.jpg"/>
+
+                        <Cards title="Graphic Design" desc="When you have an idea but your sketch is not like what you thought of, I'm here for you" img="/graphic-design.webp"/>
+
+                        <Cards title="Video Editting" desc="I can do basic video editting that includes captioning and transitions" img="/video-editting.webp"/>
+
+                    </Fade>
+                    
+                    
+                </div>
+            </div>
             <div className="h-[100vh]">
 
             </div>
