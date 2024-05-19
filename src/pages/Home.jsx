@@ -7,12 +7,12 @@ export default function Home(){
             {/* Banner */}
             <div className="bg-[#222831] min-h-[60vh] items-center grid grid-cols-1 gap-y-0 xl:grid-cols-2 md:grid-cols-2 mb-20">
                 <div className="mx-10">
-                    <Fade cascade>
+                    <Fade cascade triggerOnce>
                         <img src="/timothy.webp" alt="" srcset="" className="max-w-48 mx-auto xl:max-w-96 md:max-w-80" />
                     </Fade>
                 </div>
                 <div className="text-center xl:text-justify md:text-justify text-3xl text-[#EEEEEE] -mt-44 grid grid-cols-1 xl:gap-y-3 xl:-mt-20 xl:text-6xl xl:mr-24 md:gap-y-3 md:-mt-20 md:text-6xl md:mr-16 mx-10">
-                    <Fade cascade>
+                    <Fade cascade triggerOnce>
                         <p className="">Hello, I am</p> 
                         <p className="font-bold text-[#76ABAE]">Timothy Johan</p>
                         <p className="text-xl xl:text-3xl md:text-3xl">A Fullstack web developer creative UI/UX designer and a partial graphic designer</p>
@@ -22,16 +22,19 @@ export default function Home(){
 
             {/* Find me */}
             <div className="mb-40 mx-10">
-                <Fade>
-                    <h1 className="text-center text-xl font-bold mb-8 ">Find me on</h1>
+                <Fade triggerOnce>
+                    <h1 className="text-center text-3xl font-bold mb-8 ">Find me on</h1>
                 </Fade>
-                    <div className="grid grid-cols-2 md:w-fit mx-auto">
-                        <Fade cascade direction="right">
+                    <div className="grid grid-cols-3 md:w-fit mx-auto">
+                        <Fade cascade direction="right" triggerOnce>
                             <a href="https://github.com/timothyjohan" target="_blank" className="flex justify-center items-center md:mx-12">
                                 <img src="/github.png" className="w-14" />
                             </a>
                             <a href="https://www.linkedin.com/in/timothyjohan/" target="_blank" className="flex justify-center items-center md:mx-12">
                                 <img src="/linkedin.webp" className="w-14" />
+                            </a>
+                            <a href="https://leetcode.com/u/timothyjohan11/" target="_blank" className="flex justify-center items-center md:mx-12">
+                                <img src="/leet-code.svg" className="w-14 h-14" />
                             </a>
                         </Fade>
                     </div>
@@ -39,10 +42,11 @@ export default function Home(){
             </div>
 
             {/* About me */}
-            <div className="mx-10 xl:mx-44" id="about_me">
+            <div id="about_me" className="h-8"></div>
+            <div className="mx-10 xl:mx-44" >
                 <div className="text-justify text-3xl text-[#EEEEEE] grid xl:grid-cols-2 md:grid-cols-2">
                     <div className="mb-20 xl:order-1">
-                        <Fade cascade>
+                        <Fade cascade triggerOnce>
 
                             <h1 className="font-bold mb-8">About <span className="text-[#76ABAE]">Me</span></h1>
                             <p className="text-xl mb-8">
@@ -57,7 +61,7 @@ export default function Home(){
                         </Fade>
                     </div>
                     <div className="xl:order-2  md:mt-14 lg:ml-20">
-                        <Fade>
+                        <Fade triggerOnce>
                             <img src="/blue-gear.webp" className="xl:w-80 w-60 ml-auto animate-spin" style={{animationDuration: '7s'}} />
                             <img src="/blue-gear.webp" className="xl:w-64 w-44 ml-auto mr-20 animate-spin" style={{animationDuration: '5s'}} />
                             <img src="/blue-gear.webp" className="xl:w-0 md:w-60 w-0 ml-auto animate-spin" style={{animationDuration: '6s'}} />
