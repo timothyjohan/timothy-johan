@@ -13,7 +13,7 @@ export default function Home(){
                     <Fade cascade>
                         <p className="">Hello, I am</p> 
                         <p className="font-bold text-[#76ABAE]">Timothy Johan</p>
-                        <p className="text-xl xl:text-3xl md:text-3xl">A Fullstck web developer crative UI/UX designer and a partial graphic designer</p>
+                        <p className="text-xl xl:text-3xl md:text-3xl">A Fullstack web developer creative UI/UX designer and a partial graphic designer</p>
                     </Fade>
                 </div>
             </div>
