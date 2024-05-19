@@ -24,3 +24,6 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+  ::-webkit-scrollbar-horizontal {
+    display: none;
+  }
