@@ -7,7 +7,7 @@ export default function Navbar(){
                 </div>
                 <div className="my-auto grid grid-cols-2 text-[#EEEEEE] font-bold col-span-4 xl:col-span-1 ml-auto mr-10 xl:mr-0">
                     <div ><a href="#about_me">About Me</a></div>
-                    <div>My Projects</div>
+                    {/* <div>My Projects</div> */}
                 </div>
             </div>
             
