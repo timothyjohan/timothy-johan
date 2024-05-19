@@ -3,7 +3,8 @@ import { Fade } from "react-awesome-reveal";
 export default function Home(){
     return(
         <>  
-            <div className="bg-[#222831] min-h-[60vh] items-center grid grid-cols-1 gap-y-0 xl:grid-cols-2 md:grid-cols-2 mb-40">
+            {/* Banner */}
+            <div className="bg-[#222831] min-h-[60vh] items-center grid grid-cols-1 gap-y-0 xl:grid-cols-2 md:grid-cols-2 mb-20">
                 <div className="mx-10">
                     <Fade cascade>
                         <img src="/timothy.webp" alt="" srcset="" className="max-w-48 mx-auto xl:max-w-96 md:max-w-80" />
@@ -17,8 +18,27 @@ export default function Home(){
                     </Fade>
                 </div>
             </div>
-            
-            <div className="mx-10 xl:mx-44">
+
+            {/* Find me */}
+            <div className="mb-40 mx-10">
+                <Fade>
+                    <h1 className="text-center text-xl font-bold mb-8 ">Find me on</h1>
+                </Fade>
+                    <div className="grid grid-cols-2 md:w-fit mx-auto">
+                        <Fade cascade direction="right">
+                            <a href="https://github.com/timothyjohan" target="_blank" className="flex justify-center items-center md:mx-12">
+                                <img src="/github.png" className="w-14" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/timothyjohan/" target="_blank" className="flex justify-center items-center md:mx-12">
+                                <img src="/linkedin.webp" className="w-14" />
+                            </a>
+                        </Fade>
+                    </div>
+
+            </div>
+
+            {/* About me */}
+            <div className="mx-10 xl:mx-44" id="about_me">
                 <div className="text-justify text-3xl text-[#EEEEEE] grid xl:grid-cols-2 md:grid-cols-2">
                     <div className="mb-20 xl:order-1">
                         <Fade cascade>

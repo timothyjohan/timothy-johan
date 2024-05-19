@@ -6,7 +6,7 @@ export default function Navbar(){
                     <img src="/ado.jpg" className="xl:w-14 w-0 hide rounded-full" />
                 </div>
                 <div className="my-auto grid grid-cols-3 text-[#EEEEEE] font-bold col-span-4 xl:col-span-1">
-                    <div>About Me</div>
+                    <div><a href="#about_me">About Me</a></div>
                     <div>Experience</div>
                     <div>My Projects</div>
                 </div>
