@@ -60,11 +60,11 @@ export default function Home(){
                             </p>
                         </Fade>
                     </div>
-                    <div className="xl:order-2  md:mt-14 lg:ml-20">
+                    <div className="xl:order-2 md:mt-14 lg:ml-20 hidden md:block">
                         <Fade triggerOnce>
                             <img src="/blue-gear.webp" className="xl:w-80 w-60 ml-auto animate-spin" style={{animationDuration: '7s'}} />
                             <img src="/blue-gear.webp" className="xl:w-64 w-44 ml-auto mr-20 animate-spin" style={{animationDuration: '5s'}} />
-                            <img src="/blue-gear.webp" className="xl:w-0 md:w-60 w-0 ml-auto animate-spin" style={{animationDuration: '6s'}} />
+                            <img src="/blue-gear.webp" className="xl:hidden md:block md:w-60 ml-auto animate-spin" style={{animationDuration: '6s'}} />
 
                         </Fade>
                     </div>
