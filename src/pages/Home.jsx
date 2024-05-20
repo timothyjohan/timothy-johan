@@ -1,9 +1,25 @@
 import { Fade } from "react-awesome-reveal";
 import Cards from "../components/Cards";
+import ReactCardFlip from "react-card-flip";
+import { useState } from "react";
 
 export default function Home(){
+    const [isFlipped, setIsFlipped] = useState(Array(5).fill(false));
+
+    const handleClick = (index) => {
+        const newFlips = Array(5).fill(false);
+        newFlips[index] = !isFlipped[index];
+        setIsFlipped(newFlips);
+    };
+
+    const resetOthers = (index) => {
+        const newFlips = Array(5).fill(false);
+        newFlips[index] = true;
+        setIsFlipped(newFlips);
+    };
+
     return(
-        <>  
+          <>  
             {/* Banner */}
             <div className="bg-[#222831] min-h-[60vh] items-center grid grid-cols-1 gap-y-0 xl:grid-cols-2 md:grid-cols-2 mb-20">
                 <div className="mx-10">
@@ -79,15 +95,31 @@ export default function Home(){
                 <h1 className="text-center font-bold text-3xl">What can I do for you?</h1>
                 <div className="mt-10 grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-14">
                     <Fade cascade direction="right" triggerOnce>
-                        <Cards title="Web Design" desc="I can help you design your web to your likings while still discussing with you about it" img="/web-design.webp"/>
+                        <ReactCardFlip isFlipped={isFlipped[0]} flipDirection="horizontal">
+                            <Cards onclick={() => { handleClick(0); resetOthers(0); }} title="Web Design" desc="I can help you design your web to your likings while still discussing with you about it" img="/web-design.webp"/>
+                            <Cards onclick={handleClick} title="Belakangnya" desc="hehehehhee" img="https://cataas.com/cat"/>
+                        </ReactCardFlip>
 
-                        <Cards title="Backend Web Programming" desc="Not feeling appreciated for what you did because it has no visual impact? don't worry I'll take it from here" img="/backend.png"/>
+                        <ReactCardFlip isFlipped={isFlipped[1]} flipDirection="horizontal">
+                            <Cards onclick={() => { handleClick(1); resetOthers(1); }} title="Backend Web Programming" desc="Not feeling appreciated for what you did because it has no visual impact? don't worry I'll take it from here" img="/backend.png"/>
+                            <Cards onclick={handleClick} title="Backend Web Programming" desc="Ini juga belakang" img="https://cataas.com/cat"/>
+                        </ReactCardFlip>
 
-                        <Cards title="Tutoring" desc="You don't know what you're doing? don't worry I can help you understand it even though I'll have to learn it first. I assure you that you won't leave with nothing!" img="/cat-using-laptop.jpg"/>
+                        <ReactCardFlip isFlipped={isFlipped[2]} flipDirection="horizontal">
+                            <Cards onclick={() => { handleClick(2); resetOthers(2); }} title="Tutoring" desc="You don't know what you're doing? don't worry I can help you understand it even though I'll have to learn it first. I assure you that you won't leave with nothing!" img="/cat-using-laptop.jpg"/>
+                            <Cards onclick={handleClick} title="Tutoring" desc="Belakang tutor" img="/cat-using-laptop.jpg"/>
+                        </ReactCardFlip>
 
-                        <Cards title="Graphic Design" desc="When you have an idea but your sketch is not like what you thought of, I'm here for you" img="/graphic-design.webp"/>
+                        <ReactCardFlip isFlipped={isFlipped[3]} flipDirection="horizontal">
+                            <Cards onclick={() => { handleClick(3); resetOthers(3); }} title="Graphic Design" desc="When you have an idea but your sketch is not like what you thought of, I'm here for you" img="/graphic-design.webp"/>
+                            <Cards onclick={handleClick} title="Graphic Design belakang" desc="When you have an idea but your sketch is not like what you thought of, I'm here for you" img="/graphic-design.webp"/>
+                        </ReactCardFlip>
 
-                        <Cards title="Video Editting" desc="I can do basic video editting that includes captioning and transitions" img="/video-editting.webp"/>
+                        <ReactCardFlip isFlipped={isFlipped[4]} flipDirection="horizontal">
+                            <Cards onclick={() => { handleClick(4); resetOthers(4); }} title="Video Editting" desc="I can do basic video editting that includes captioning and transitions" img="/video-editting.webp"/>
+                            <Cards onclick={handleClick} title="Video Editting" desc="I can do basic video editting that includes captioning and transitions" img="https://cataas.com/cat"/>
+                        </ReactCardFlip>
+
 
                     </Fade>
                     
