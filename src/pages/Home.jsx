@@ -15,7 +15,7 @@ export default function Home(){
                     <Fade cascade triggerOnce>
                         <p className="">Hello, I am</p> 
                         <p className="font-bold text-[#76ABAE]">Timothy Johan</p>
-                        <p className="text-xl xl:text-3xl md:text-3xl">A Fullstack web developer creative UI/UX designer and a partial graphic designer</p>
+                        <p className="text-xl xl:text-3xl md:text-3xl">A Fullstack web developer, creative UI/UX designer and a partial graphic designer</p>
                     </Fade>
                 </div>
             </div>
@@ -44,13 +44,13 @@ export default function Home(){
             {/* About me */}
             <div id="about_me" className="h-8"></div>
             <div className="mx-10 xl:mx-44" >
-                <div className="text-justify text-3xl text-[#EEEEEE] grid xl:grid-cols-2 md:grid-cols-2">
+                <div className="text-justify text-5xl text-[#EEEEEE] grid xl:grid-cols-2 md:grid-cols-2">
                     <div className="mb-20 xl:order-1">
                         <Fade cascade triggerOnce>
 
                             <h1 className="font-bold mb-8">About <span className="text-[#76ABAE]">Me</span></h1>
                             <p className="text-xl mb-8">
-                                I am passionate about frontend web development and <span className="font-bold">UI/UX design</span>. I strive to create intuitive and engaging user interfaces by <span className="italic underline">putting myself in the user's shoes</span>  to understand their needs and desires. My goal is to design experiences that are not only <span className="font-bold"> visually appealing</span> but also <span className="font-bold">highly functional and user-friendly</span>.
+                                I am passionate about frontend web development and <span className="font-bold">UI/UX design</span>. I strive to create intuitive and engaging user interfaces by <span className="italic">putting myself in the user's shoes</span>  to understand their needs and desires. My goal is to design experiences that are not only <span className="font-bold"> visually appealing</span> but also <span className="font-bold">highly functional and user-friendly</span>.
                             </p>
                             <p className="text-xl mb-8">
                                 In addition to my focus on frontend development, I am also a dedicated <span className="font-bold">Computer Science</span> student with a keen interest in <span className="font-bold">machine learning</span>. I am continually expanding my knowledge and skills in this field, exploring how machine learning can be <span className="font-bold">integrated into web applications</span> to enhance user experiences and provide smarter solutions.
@@ -60,7 +60,7 @@ export default function Home(){
                             </p>
                         </Fade>
                     </div>
-                    <div className="xl:order-2 md:mt-14 lg:ml-20 hidden md:block">
+                    <div className="xl:order-2 md:mt-14 lg:ml-20 hidden md:block    ">
                         <Fade triggerOnce>
                             <img src="/blue-gear.webp" className="xl:w-80 w-60 ml-auto animate-spin" style={{animationDuration: '7s'}} />
                             <img src="/blue-gear.webp" className="xl:w-64 w-44 ml-auto mr-20 animate-spin" style={{animationDuration: '5s'}} />
