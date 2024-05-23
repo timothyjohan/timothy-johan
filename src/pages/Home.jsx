@@ -2,6 +2,7 @@ import { Fade } from "react-awesome-reveal";
 import Cards from "../components/Cards";
 import ReactCardFlip from "react-card-flip";
 import { useState } from "react";
+import CardsBehind from "../components/CardsBehind";
 
 export default function Home(){
     const [isFlipped, setIsFlipped] = useState(Array(5).fill(false));
@@ -93,16 +94,16 @@ export default function Home(){
 
             <div className="mt-24 lg:mt-40 mx-10 xl:mx-44">
                 <h1 className="text-center font-bold text-3xl">What can I do for you?</h1>
-                <div className="mt-10 grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-14">
+                <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-x-14 gap-y-14">
                     <Fade cascade direction="right" triggerOnce>
                         <ReactCardFlip isFlipped={isFlipped[0]} flipDirection="horizontal">
                             <Cards onclick={() => { handleClick(0); resetOthers(0); }} title="Web Design" desc="I can help you design your web to your likings while still discussing with you about it" img="/web-design.webp"/>
-                            <Cards onclick={handleClick} title="Belakangnya" desc="hehehehhee" img="https://cataas.com/cat"/>
+                            <CardsBehind onclick={handleClick} title="Belakangnya" desc="hehehehhee" img="https://cataas.com/cat"/>
                         </ReactCardFlip>
 
                         <ReactCardFlip isFlipped={isFlipped[1]} flipDirection="horizontal">
                             <Cards onclick={() => { handleClick(1); resetOthers(1); }} title="Backend Web Programming" desc="Not feeling appreciated for what you did because it has no visual impact? don't worry I'll take it from here" img="/backend.png"/>
-                            <Cards onclick={handleClick} title="Backend Web Programming" desc="Ini juga belakang" img="https://cataas.com/cat"/>
+                            <CardsBehind onclick={handleClick} title="Backend Web Programming" desc="Ini juga belakang" img="https://cataas.com/cat"/>
                         </ReactCardFlip>
 
                         <ReactCardFlip isFlipped={isFlipped[2]} flipDirection="horizontal">
