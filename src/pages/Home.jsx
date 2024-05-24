@@ -97,34 +97,58 @@ export default function Home(){
                 <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-x-14 gap-y-14">
                     <Fade cascade direction="right" triggerOnce>
                         <ReactCardFlip isFlipped={isFlipped[0]} flipDirection="horizontal">
-                            <Cards onclick={() => { handleClick(0); resetOthers(0); }} title="Web Design" desc="I can help you design your web to your likings while still discussing with you about it" img="/web-design.webp"/>
-                            <CardsBehind onclick={handleClick} title="Belakangnya" desc="hehehehhee" img="https://cataas.com/cat"/>
+                            <Cards onclick={() => { handleClick(0); resetOthers(0); }} title="Web Design"  img="/web-design.webp"/>
+                            <CardsBehind onclick={handleClick} title="Web Design" desc="I can help you design your web to your likings while still discussing with you about it"  img="/web-design.webp"/>
                         </ReactCardFlip>
 
                         <ReactCardFlip isFlipped={isFlipped[1]} flipDirection="horizontal">
-                            <Cards onclick={() => { handleClick(1); resetOthers(1); }} title="Backend Web Programming" desc="Not feeling appreciated for what you did because it has no visual impact? don't worry I'll take it from here" img="/backend.png"/>
-                            <CardsBehind onclick={handleClick} title="Backend Web Programming" desc="Ini juga belakang" img="https://cataas.com/cat"/>
+                            <Cards onclick={() => { handleClick(1); resetOthers(1); }} title="Backend Web Programming"  img="/backend.png"/>
+                            <CardsBehind onclick={handleClick} title="Backend Web Programming" desc="Not feeling appreciated for what you did because it has no visual impact? don't worry I'll take it from here" img="/backend.png"/>
                         </ReactCardFlip>
 
                         <ReactCardFlip isFlipped={isFlipped[2]} flipDirection="horizontal">
-                            <Cards onclick={() => { handleClick(2); resetOthers(2); }} title="Tutoring" desc="You don't know what you're doing? don't worry I can help you understand it even though I'll have to learn it first. I assure you that you won't leave with nothing!" img="/cat-using-laptop.jpg"/>
-                            <Cards onclick={handleClick} title="Tutoring" desc="Belakang tutor" img="/cat-using-laptop.jpg"/>
+                            <Cards onclick={() => { handleClick(2); resetOthers(2); }} title="Tutoring"  img="/cat-using-laptop.jpg"/>
+                            <CardsBehind onclick={handleClick} title="Tutoring" desc="You don't know what you're doing? don't worry I can help you understand it even though I'll have to learn it first. I assure you that you won't leave with nothing!" img="/cat-using-laptop.jpg"/>
                         </ReactCardFlip>
 
                         <ReactCardFlip isFlipped={isFlipped[3]} flipDirection="horizontal">
-                            <Cards onclick={() => { handleClick(3); resetOthers(3); }} title="Graphic Design" desc="When you have an idea but your sketch is not like what you thought of, I'm here for you" img="/graphic-design.webp"/>
-                            <Cards onclick={handleClick} title="Graphic Design belakang" desc="When you have an idea but your sketch is not like what you thought of, I'm here for you" img="/graphic-design.webp"/>
+                            <Cards onclick={() => { handleClick(3); resetOthers(3); }} title="Graphic Design"  img="/graphic-design.webp"/>
+                            <CardsBehind onclick={handleClick} title="Graphic Design belakang" desc="When you have an idea but your sketch is not like what you thought of, I'm here for you" img="/graphic-design.webp"/>
                         </ReactCardFlip>
 
                         <ReactCardFlip isFlipped={isFlipped[4]} flipDirection="horizontal">
-                            <Cards onclick={() => { handleClick(4); resetOthers(4); }} title="Video Editting" desc="I can do basic video editting that includes captioning and transitions" img="/video-editting.webp"/>
-                            <Cards onclick={handleClick} title="Video Editting" desc="I can do basic video editting that includes captioning and transitions" img="https://cataas.com/cat"/>
+                            <Cards onclick={() => { handleClick(4); resetOthers(4); }} title="Video Editting" img="/video-editting.webp"/>
+                            <CardsBehind onclick={handleClick} title="Video Editting" desc="I can do basic video editting that includes captioning and transitions" img="/video-editting.webp"/>
                         </ReactCardFlip>
 
 
                     </Fade>
                     
                     
+                </div>
+            </div>
+
+            {/* Apps that helped me */}
+            <div className="mt-24 lg:mt-40 mx-10 xl:mx-44">
+                <h1 className="text-3xl text-center font-bold mb-10">
+                    Useful <span className="text-[#76ABAE]">Apps</span> that helped me
+
+                </h1>
+                <div className="grid grid-cols-3 md:w-fit mx-auto gap-y-5 md: grid-cols-4">
+                    <Fade cascade direction="right" triggerOnce>
+                        <a href="https://www.adobe.com/products/photoshop.html" target="_blank" className="flex justify-center items-center md:mx-12">
+                            <img src="/photoshop.png" className="w-14 rounded-full" />
+                        </a>
+                        <a href="https://www.adobe.com/id_en/products/premiere.html" target="_blank" className="flex justify-center items-center md:mx-12">
+                            <img src="/premiere-pro.png" className="w-14 rounded-full" />
+                        </a>
+                        <a href="https://code.visualstudio.com/" target="_blank" className="flex justify-center items-center md:mx-12">
+                            <img src="/visual-studio.png" className="w-14 h-14 rounded-full" />
+                        </a>
+                        <a href="https://developer.android.com/studio" target="_blank" className="flex justify-center items-center md:mx-12">
+                            <img src="/android-studio.webp" className="w-14 h-14 rounded-full" />
+                        </a>
+                    </Fade>
                 </div>
             </div>
             <div className="h-[30vh]">
