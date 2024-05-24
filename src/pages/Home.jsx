@@ -113,7 +113,7 @@ export default function Home(){
 
                         <ReactCardFlip isFlipped={isFlipped[3]} flipDirection="horizontal">
                             <Cards onclick={() => { handleClick(3); resetOthers(3); }} title="Graphic Design"  img="/graphic-design.webp"/>
-                            <CardsBehind onclick={handleClick} title="Graphic Design belakang" desc="When you have an idea but your sketch is not like what you thought of, I'm here for you" img="/graphic-design.webp"/>
+                            <CardsBehind onclick={handleClick} title="Graphic Design" desc="When you have an idea but your sketch is not like what you thought of, I'm here for you" img="/graphic-design.webp"/>
                         </ReactCardFlip>
 
                         <ReactCardFlip isFlipped={isFlipped[4]} flipDirection="horizontal">
@@ -128,6 +128,9 @@ export default function Home(){
                 </div>
             </div>
 
+            <div id="services" className="mb-5">
+
+            </div>
             {/* Apps that helped me */}
             <div className="mt-24 lg:mt-40 mx-10 xl:mx-44">
                 <h1 className="text-3xl text-center font-bold mb-10">
