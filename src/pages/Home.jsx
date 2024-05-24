@@ -89,6 +89,9 @@ export default function Home(){
                 </div>
 
             </div>
+            <div id="services" className="mb-5">
+
+            </div>
 
             {/* What can I do? */}
 
@@ -128,9 +131,7 @@ export default function Home(){
                 </div>
             </div>
 
-            <div id="services" className="mb-5">
-
-            </div>
+            
             {/* Apps that helped me */}
             <div className="mt-24 lg:mt-40 mx-10 xl:mx-44">
                 <h1 className="text-3xl text-center font-bold mb-10">
