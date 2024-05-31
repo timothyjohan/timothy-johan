@@ -155,6 +155,26 @@ export default function Home(){
                     </Fade>
                 </div>
             </div>
+
+            {/* My works */}
+
+            <div className="mt-24 lg:mt-60 mx-10 xl:mx-44">
+                <h1 className="text-center text-3xl font-bold ">My <span className="text-[#76ABAE]">Works</span></h1>
+
+                <div className="grid grid-cols-1 xl:grid-cols-2 mt-20">
+                    <div className="flex flex-col justify-center items-center mx-auto ">
+                        <img src="/work_1.png" className="w-full xl:w-3/4 object-fit bg-yellow-100" />
+                        <h1 className="font-bold text-2xl ">Bunkasai ISTTS Website</h1>
+                    </div>
+                    <div className="flex flex-col justify-center items-center mx-auto">
+                        <img src="/work_1.png" className="w-full xl:w-3/4 object-fit bg-yellow-100" />
+                        <h1 className="font-bold text-2xl ">Bunkasai ISTTS Website</h1>
+
+                    </div>
+
+                </div>
+            </div>
+
             <div className="h-[30vh]">
 
             </div>
