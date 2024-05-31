@@ -177,13 +177,13 @@ export default function Home(){
 
                     <Fade direction="right">
                         <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
-                            <a href="https://bunkasai-istts.vercel.app/" target="_blank" className="w-full xl:w-3/4 object-contain transition duration-500 hover:scale-110">
+                            <a href="https://github.com/timothyjohan/line_mockup_besties" target="_blank" className="w-full xl:w-3/4 object-contain transition duration-500 hover:scale-110">
                                 <img src="/work_1.png"  />
 
                             </a>
                             <div className="mx-2 xl:mx-28 text-justify mt-4">
-                                <h1 className="font-bold text-2xl font-bold">Bunkasai ISTTS Website</h1>
-                                <p className="mt-1">A website for an event that facilitates competition registration, manages tenants, and handles sponsorship proposals.</p>
+                                <h1 className="font-bold text-2xl font-bold">Besties Chat Messenger</h1>
+                                <p className="mt-1">A fully functional chat messenger mockup of LINE, utilizing MongoDB as the database.</p>
                             </div>
                         </div>
                     </Fade>
