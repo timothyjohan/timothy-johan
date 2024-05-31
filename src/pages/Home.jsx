@@ -159,18 +159,61 @@ export default function Home(){
             {/* My works */}
 
             <div className="mt-24 lg:mt-60 mx-10 xl:mx-44">
-                <h1 className="text-center text-3xl font-bold ">My <span className="text-[#76ABAE]">Works</span></h1>
+                <h1 className="text-center text-4xl font-bold ">My <span className="text-[#76ABAE]">Works</span></h1>
 
-                <div className="grid grid-cols-1 xl:grid-cols-2 mt-20">
-                    <div className="flex flex-col justify-center items-center mx-auto ">
-                        <img src="/work_1.png" className="w-full xl:w-3/4 object-fit bg-yellow-100" />
-                        <h1 className="font-bold text-2xl ">Bunkasai ISTTS Website</h1>
-                    </div>
-                    <div className="flex flex-col justify-center items-center mx-auto">
-                        <img src="/work_1.png" className="w-full xl:w-3/4 object-fit bg-yellow-100" />
-                        <h1 className="font-bold text-2xl ">Bunkasai ISTTS Website</h1>
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-y-14 mt-20 xl:mx-20 ">
+                    <Fade direction="left">
+                        <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
+                            <a href="https://bunkasai-istts.vercel.app/" target="_blank" className="w-full xl:w-3/4 object-contain transition duration-500 hover:scale-110">
+                                <img src="/work_1.png"  />
 
-                    </div>
+                            </a>
+                            <div className="mx-2 xl:mx-28 text-justify mt-4">
+                                <h1 className="font-bold text-2xl font-bold">Bunkasai ISTTS Website</h1>
+                                <p className="mt-1">A website for an event that facilitates competition registration, manages tenants, and handles sponsorship proposals.</p>
+                            </div>
+                        </div>
+                    </Fade>
+
+                    <Fade direction="right">
+                        <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
+                            <a href="https://bunkasai-istts.vercel.app/" target="_blank" className="w-full xl:w-3/4 object-contain transition duration-500 hover:scale-110">
+                                <img src="/work_1.png"  />
+
+                            </a>
+                            <div className="mx-2 xl:mx-28 text-justify mt-4">
+                                <h1 className="font-bold text-2xl font-bold">Bunkasai ISTTS Website</h1>
+                                <p className="mt-1">A website for an event that facilitates competition registration, manages tenants, and handles sponsorship proposals.</p>
+                            </div>
+                        </div>
+                    </Fade>
+
+                    <Fade direction="left">
+                        <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
+                            <a href="https://bunkasai-istts.vercel.app/" target="_blank" className="w-full xl:w-3/4 object-contain transition duration-500 hover:scale-110">
+                                <img src="/work_1.png"  />
+
+                            </a>
+                            <div className="mx-2 xl:mx-28 text-justify mt-4">
+                                <h1 className="font-bold text-2xl font-bold">Bunkasai ISTTS Website</h1>
+                                <p className="mt-1">A website for an event that facilitates competition registration, manages tenants, and handles sponsorship proposals.</p>
+                            </div>
+                        </div>
+                    </Fade>
+
+                    <Fade direction="right">
+                        <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
+                            <a href="https://bunkasai-istts.vercel.app/" target="_blank" className="w-full xl:w-3/4 object-contain transition duration-500 hover:scale-110">
+                                <img src="/work_1.png"  />
+
+                            </a>
+                            <div className="mx-2 xl:mx-28 text-justify mt-4">
+                                <h1 className="font-bold text-2xl font-bold">Bunkasai ISTTS Website</h1>
+                                <p className="mt-1">A website for an event that facilitates competition registration, manages tenants, and handles sponsorship proposals.</p>
+                            </div>
+                        </div>
+                    </Fade>
+
 
                 </div>
             </div>
