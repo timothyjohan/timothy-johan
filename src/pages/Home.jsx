@@ -97,7 +97,7 @@ export default function Home(){
 
             <div className="mt-24 lg:mt-40 mx-10 xl:mx-44">
                 <h1 className="text-center font-bold text-3xl">What can I do for you?</h1>
-                <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-x-14 gap-y-14">
+                <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-x-14 gap-y-14 xl:gap-y-24">
                     <Fade cascade direction="right" triggerOnce>
                         <ReactCardFlip isFlipped={isFlipped[0]} flipDirection="horizontal">
                             <Cards onclick={() => { handleClick(0); resetOthers(0); }} title="Web Design"  img="/web-design.webp"/>
