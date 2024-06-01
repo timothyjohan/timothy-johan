@@ -162,10 +162,10 @@ export default function Home(){
             <div className="mt-24 mx-10 xl:mx-44 md:text-xl">
                 <h1 className="text-center text-4xl font-bold ">My <span className="text-[#76ABAE]">Works</span></h1>
 
-                <div className="grid grid-cols-1 xl:grid-cols-2 gap-y-14 mt-20 xl:mx-20 ">
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-y-14 mt-20 2xl:mx-20 ">
                     {/* <Fade direction="left"> */}
                         <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
-                            <div className="bg-zinc-800 bg-opacity-50 rounded-xl xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:ml-auto xl:mr-10">
+                            <div className="bg-zinc-800 bg-opacity-50 rounded-xl 2xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:ml-auto xl:mr-10">
                                 <a href="https://bunkasai-istts.vercel.app/" target="_blank" className="w-full xl:w-3/4 object-contain">
                                     <img src="/work_1.png" className="rounded-md" />
 
@@ -181,7 +181,7 @@ export default function Home(){
 
                     {/* <Fade direction="right"> */}
                         <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
-                            <div className="bg-zinc-800 bg-opacity-50 rounded-xl xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:mr-auto xl:ml-10">
+                            <div className="bg-zinc-800 bg-opacity-50 rounded-xl 2xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:mr-auto xl:ml-10">
                                 <a href="https://github.com/timothyjohan/line_mockup_besties" target="_blank" className="w-full xl:w-3/4 object-contain">
                                     <img src="/work_2.png" className="rounded-md" />
 
@@ -197,7 +197,7 @@ export default function Home(){
 
                     {/* <Fade direction="left"> */}
                         <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
-                            <div className="bg-zinc-800 bg-opacity-50 rounded-xl xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:ml-auto xl:mr-10">
+                            <div className="bg-zinc-800 bg-opacity-50 rounded-xl 2xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:ml-auto xl:mr-10">
                                 <a href="https://github.com/timothyjohan/14_Cruixx_Mate-Diary" target="_blank" className="w-full xl:w-3/4 object-contain">
                                     <img src="/work_3.1.png" className="rounded-md" />
 
@@ -219,7 +219,7 @@ export default function Home(){
 
                     {/* <Fade direction="right"> */}
                         <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
-                            <div className="bg-zinc-800 bg-opacity-50 rounded-xl xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:mr-auto xl:ml-10">
+                            <div className="bg-zinc-800 bg-opacity-50 rounded-xl 2xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:mr-auto xl:ml-10">
                                 <a href="https://github.com/timothyjohan/league-of-legends-lane-guide-backend" target="_blank" className="w-full xl:w-3/4 object-contain">
                                     <img src="/work_4.png" className="rounded-md" />
 
