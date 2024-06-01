@@ -158,7 +158,8 @@ export default function Home(){
 
             {/* My works */}
 
-            <div className="mt-24 lg:mt-60 mx-10 xl:mx-44 md:text-xl">
+            <div id="my_work" className="my-8 lg:mt-60 min-h-1"></div>
+            <div className="mt-24 mx-10 xl:mx-44 md:text-xl">
                 <h1 className="text-center text-4xl font-bold ">My <span className="text-[#76ABAE]">Works</span></h1>
 
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-y-14 mt-20 xl:mx-20 ">
