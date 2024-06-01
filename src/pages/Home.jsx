@@ -138,7 +138,7 @@ export default function Home(){
                     Useful <span className="text-[#76ABAE]">Apps</span> that helped me
 
                 </h1>
-                <div className="grid grid-cols-3 md:w-fit mx-auto gap-y-5 md: grid-cols-4">
+                <div className="grid grid-cols-3 md:w-fit mx-auto gap-y-5 md:grid-cols-4">
                     <Fade cascade direction="right" triggerOnce>
                         <a href="https://www.adobe.com/products/photoshop.html" target="_blank" className="flex justify-center items-center md:mx-12">
                             <img src="/photoshop.png" className="w-14 rounded-full" />
@@ -158,7 +158,7 @@ export default function Home(){
 
             {/* My works */}
 
-            <div className="mt-24 lg:mt-60 mx-10 xl:mx-44">
+            <div className="mt-24 lg:mt-60 mx-10 xl:mx-44 md:text-xl">
                 <h1 className="text-center text-4xl font-bold ">My <span className="text-[#76ABAE]">Works</span></h1>
 
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-y-14 mt-20 xl:mx-20 ">
