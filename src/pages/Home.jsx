@@ -24,26 +24,26 @@ export default function Home(){
             {/* Banner */}
             <div style={{boxShadow: `0px 0px 25px 10px rgba(0, 0, 0, 0.3) inset`}} className="bg-[#222831] min-h-[60vh] items-center grid grid-cols-1 gap-y-0 xl:grid-cols-2 md:grid-cols-2 mb-20 shadow-inner">
                 <div className="mx-10">
-                    <Fade cascade triggerOnce>
+                    {/* <Fade cascade triggerOnce> */}
                         <img src="/timothy.webp" alt="" srcset="" className="max-w-48 mx-auto xl:max-w-96 md:max-w-80 mb-10 md:mb-0" />
-                    </Fade>
+                    {/* </Fade> */}
                 </div>
                 <div className="text-center xl:text-justify md:text-justify text-3xl text-[#EEEEEE] -mt-44 grid grid-cols-1 xl:gap-y-3 xl:-mt-20 xl:text-6xl xl:mr-24 md:gap-y-3 md:-mt-20 md:text-6xl md:mr-16 mx-10">
-                    <Fade cascade triggerOnce>
+                    {/* <Fade cascade triggerOnce> */}
                         <p className="">Hello, I am</p> 
                         <p className="font-bold text-[#76ABAE]">Timothy Johan</p>
                         <p className="text-xl xl:text-3xl md:text-3xl">A Fullstack web developer, creative UI/UX designer and a partial graphic designer</p>
-                    </Fade>
+                    {/* </Fade> */}
                 </div>
             </div>
 
             {/* Find me */}
             <div className="mb-40 mx-10">
-                <Fade triggerOnce>
+                {/* <Fade triggerOnce> */}
                     <h1 className="text-center text-3xl font-bold mb-8 ">Find me on</h1>
-                </Fade>
+                {/* </Fade> */}
                     <div className="grid grid-cols-3 md:w-fit mx-auto">
-                        <Fade cascade direction="right" triggerOnce>
+                        {/* <Fade cascade direction="right" triggerOnce> */}
                             <a href="https://github.com/timothyjohan" target="_blank" className="flex justify-center items-center md:mx-12">
                                 <img src="/github.png" className="w-14" />
                             </a>
@@ -53,7 +53,7 @@ export default function Home(){
                             <a href="https://leetcode.com/u/timothyjohan11/" target="_blank" className="flex justify-center items-center md:mx-12">
                                 <img src="/leet-code.svg" className="w-14 h-14" />
                             </a>
-                        </Fade>
+                        {/* </Fade> */}
                     </div>
 
             </div>
@@ -63,7 +63,7 @@ export default function Home(){
             <div className="mx-10 xl:mx-44" >
                 <div className="text-justify text-5xl text-[#EEEEEE] grid xl:grid-cols-2 md:grid-cols-2">
                     <div className="mb-20 xl:order-1">
-                        <Fade cascade triggerOnce>
+                        {/* <Fade cascade triggerOnce> */}
 
                             <h1 className="font-bold mb-8">About <span className="text-[#76ABAE]">Me</span></h1>
                             <p className="text-xl mb-8">
@@ -75,15 +75,15 @@ export default function Home(){
                             <p className="text-xl">
                                 I am excited about the endless possibilities in the intersection of web development and artificial intelligence, and I am committed to staying at the forefront of these evolving technologies.
                             </p>
-                        </Fade>
+                        {/* </Fade> */}
                     </div>
                     <div className="xl:order-2 md:mt-14 lg:ml-20 hidden md:block    ">
-                        <Fade triggerOnce>
+                        {/* <Fade triggerOnce> */}
                             <img src="/blue-gear.webp" className="xl:w-80 w-60 ml-auto animate-spin" style={{animationDuration: '7s'}} />
                             <img src="/blue-gear.webp" className="xl:w-64 w-44 ml-auto mr-20 animate-spin" style={{animationDuration: '5s'}} />
                             <img src="/blue-gear.webp" className="xl:hidden md:block md:w-60 ml-auto animate-spin" style={{animationDuration: '6s'}} />
 
-                        </Fade>
+                        {/* </Fade> */}
                     </div>
                     
                 </div>
@@ -98,7 +98,7 @@ export default function Home(){
             <div className="mt-24 lg:mt-40 mx-10 xl:mx-44">
                 <h1 className="text-center font-bold text-3xl">What can I do for you?</h1>
                 <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-x-14 gap-y-14">
-                    <Fade cascade direction="right" triggerOnce>
+                    {/* <Fade cascade direction="right" triggerOnce> */}
                         <ReactCardFlip isFlipped={isFlipped[0]} flipDirection="horizontal">
                             <Cards onclick={() => { handleClick(0); resetOthers(0); }} title="Web Design"  img="/web-design.webp"/>
                             <CardsBehind onclick={handleClick} title="Web Design" desc="I can help you design your web to your likings while still discussing with you about it"  img="/web-design.webp"/>
@@ -125,7 +125,7 @@ export default function Home(){
                         </ReactCardFlip>
 
 
-                    </Fade>
+                    {/* </Fade> */}
                     
                     
                 </div>
@@ -139,7 +139,7 @@ export default function Home(){
 
                 </h1>
                 <div className="grid grid-cols-3 md:w-fit mx-auto gap-y-5 md:grid-cols-4">
-                    <Fade cascade direction="right" triggerOnce>
+                    {/* <Fade cascade direction="right" triggerOnce> */}
                         <a href="https://www.adobe.com/products/photoshop.html" target="_blank" className="flex justify-center items-center md:mx-12">
                             <img src="/photoshop.png" className="w-14 rounded-full" />
                         </a>
@@ -152,7 +152,7 @@ export default function Home(){
                         <a href="https://developer.android.com/studio" target="_blank" className="flex justify-center items-center md:mx-12">
                             <img src="/android-studio.webp" className="w-14 h-14 rounded-full" />
                         </a>
-                    </Fade>
+                    {/* </Fade> */}
                 </div>
             </div>
 
@@ -163,7 +163,7 @@ export default function Home(){
                 <h1 className="text-center text-4xl font-bold ">My <span className="text-[#76ABAE]">Works</span></h1>
 
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-y-14 mt-20 xl:mx-20 ">
-                    <Fade direction="left">
+                    {/* <Fade direction="left"> */}
                         <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
                             <div className="bg-zinc-800 bg-opacity-50 rounded-xl xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:ml-auto xl:mr-10">
                                 <a href="https://bunkasai-istts.vercel.app/" target="_blank" className="w-full xl:w-3/4 object-contain">
@@ -177,9 +177,9 @@ export default function Home(){
 
                             </div>
                         </div>
-                    </Fade>
+                    {/* </Fade> */}
 
-                    <Fade direction="right">
+                    {/* <Fade direction="right"> */}
                         <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
                             <div className="bg-zinc-800 bg-opacity-50 rounded-xl xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:mr-auto xl:ml-10">
                                 <a href="https://github.com/timothyjohan/line_mockup_besties" target="_blank" className="w-full xl:w-3/4 object-contain">
@@ -193,9 +193,9 @@ export default function Home(){
 
                             </div>
                         </div>
-                    </Fade>
+                    {/* </Fade> */}
 
-                    <Fade direction="left">
+                    {/* <Fade direction="left"> */}
                         <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
                             <div className="bg-zinc-800 bg-opacity-50 rounded-xl xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:ml-auto xl:mr-10">
                                 <a href="https://github.com/timothyjohan/14_Cruixx_Mate-Diary" target="_blank" className="w-full xl:w-3/4 object-contain">
@@ -215,9 +215,9 @@ export default function Home(){
 
                             </div>
                         </div>
-                    </Fade>
+                    {/* </Fade> */}
 
-                    <Fade direction="right">
+                    {/* <Fade direction="right"> */}
                         <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
                             <div className="bg-zinc-800 bg-opacity-50 rounded-xl xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:mr-auto xl:ml-10">
                                 <a href="https://github.com/timothyjohan/league-of-legends-lane-guide-backend" target="_blank" className="w-full xl:w-3/4 object-contain">
@@ -231,7 +231,7 @@ export default function Home(){
 
                             </div>
                         </div>
-                    </Fade>
+                    {/* </Fade> */}
 
 
                 </div>
