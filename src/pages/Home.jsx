@@ -22,7 +22,7 @@ export default function Home(){
     return(
           <>  
             {/* Banner */}
-            <div className="bg-[#222831] min-h-[60vh] items-center grid grid-cols-1 gap-y-0 xl:grid-cols-2 md:grid-cols-2 mb-20">
+            <div style={{boxShadow: `0px 0px 25px 10px rgba(0, 0, 0, 0.3) inset`}} className="bg-[#222831] min-h-[60vh] items-center grid grid-cols-1 gap-y-0 xl:grid-cols-2 md:grid-cols-2 mb-20 shadow-inner">
                 <div className="mx-10">
                     <Fade cascade triggerOnce>
                         <img src="/timothy.webp" alt="" srcset="" className="max-w-48 mx-auto xl:max-w-96 md:max-w-80 mb-10 md:mb-0" />
@@ -164,52 +164,70 @@ export default function Home(){
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-y-14 mt-20 xl:mx-20 ">
                     <Fade direction="left">
                         <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
-                            <a href="https://bunkasai-istts.vercel.app/" target="_blank" className="w-full xl:w-3/4 object-contain transition duration-500 hover:scale-110">
-                                <img src="/work_1.png"  />
+                            <div className="bg-zinc-800 bg-opacity-50 rounded-xl xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:ml-auto xl:mr-10">
+                                <a href="https://bunkasai-istts.vercel.app/" target="_blank" className="w-full xl:w-3/4 object-contain">
+                                    <img src="/work_1.png" className="rounded-md" />
 
-                            </a>
-                            <div className="mx-2 xl:mx-28 text-justify mt-4">
-                                <h1 className="font-bold text-2xl font-bold">Bunkasai ISTTS Website</h1>
-                                <p className="mt-1">A website for an event that facilitates competition registration, manages tenants, and handles sponsorship proposals.</p>
+                                </a>
+                                <div className="mx-2 text-justify mt-4">
+                                    <h1 className="font-bold text-2xl font-bold text-left">Bunkasai ISTTS Website</h1>
+                                    <p className="mt-1">A website for an event that facilitates competition registration, manages tenants, and handles sponsorship proposals</p>
+                                </div>
+
                             </div>
                         </div>
                     </Fade>
 
                     <Fade direction="right">
                         <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
-                            <a href="https://github.com/timothyjohan/line_mockup_besties" target="_blank" className="w-full xl:w-3/4 object-contain transition duration-500 hover:scale-110">
-                                <img src="/work_1.png"  />
+                            <div className="bg-zinc-800 bg-opacity-50 rounded-xl xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:mr-auto xl:ml-10">
+                                <a href="https://github.com/timothyjohan/line_mockup_besties" target="_blank" className="w-full xl:w-3/4 object-contain">
+                                    <img src="/work_2.png" className="rounded-md" />
 
-                            </a>
-                            <div className="mx-2 xl:mx-28 text-justify mt-4">
-                                <h1 className="font-bold text-2xl font-bold">Besties Chat Messenger</h1>
-                                <p className="mt-1">A fully functional chat messenger mockup of LINE, utilizing MongoDB as the database.</p>
+                                </a>
+                                <div className="mx-2 text-justify mt-4">
+                                    <h1 className="font-bold text-2xl font-bold text-left">Besties Chat Messenger</h1>
+                                    <p className="mt-1">A fully functional chat messenger mockup of LINE, utilizing MongoDB as the database.</p>
+                                </div>
+
                             </div>
                         </div>
                     </Fade>
 
                     <Fade direction="left">
                         <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
-                            <a href="https://bunkasai-istts.vercel.app/" target="_blank" className="w-full xl:w-3/4 object-contain transition duration-500 hover:scale-110">
-                                <img src="/work_1.png"  />
+                            <div className="bg-zinc-800 bg-opacity-50 rounded-xl xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:ml-auto xl:mr-10">
+                                <a href="https://github.com/timothyjohan/14_Cruixx_Mate-Diary" target="_blank" className="w-full xl:w-3/4 object-contain">
+                                    <img src="/work_3.1.png" className="rounded-md" />
 
-                            </a>
-                            <div className="mx-2 xl:mx-28 text-justify mt-4">
-                                <h1 className="font-bold text-2xl font-bold">Bunkasai ISTTS Website</h1>
-                                <p className="mt-1">A website for an event that facilitates competition registration, manages tenants, and handles sponsorship proposals.</p>
+                                </a>
+                                <div className="mx-2 text-justify mt-4">
+                                    <h1 className="font-bold text-2xl font-bold text-left">Mate Diary</h1>
+                                    <p className="mt-1">A website that helps animal breeders track which animals are being bred, check the breeding history, and display its family trees.
+
+
+
+
+
+</p>
+                                </div>
+
                             </div>
                         </div>
                     </Fade>
 
                     <Fade direction="right">
                         <div className="flex flex-col justify-center items-center mx-auto max-w-4xl">
-                            <a href="https://bunkasai-istts.vercel.app/" target="_blank" className="w-full xl:w-3/4 object-contain transition duration-500 hover:scale-110">
-                                <img src="/work_1.png"  />
+                            <div className="bg-zinc-800 bg-opacity-50 rounded-xl xl:w-3/4 p-4 xl:p-8 transition duration-500 hover:scale-110 xl:mr-auto xl:ml-10">
+                                <a href="https://github.com/timothyjohan/league-of-legends-lane-guide-backend" target="_blank" className="w-full xl:w-3/4 object-contain">
+                                    <img src="/work_4.png" className="rounded-md" />
 
-                            </a>
-                            <div className="mx-2 xl:mx-28 text-justify mt-4">
-                                <h1 className="font-bold text-2xl font-bold">Bunkasai ISTTS Website</h1>
-                                <p className="mt-1">A website for an event that facilitates competition registration, manages tenants, and handles sponsorship proposals.</p>
+                                </a>
+                                <div className="mx-2 text-justify mt-4">
+                                    <h1 className="font-bold text-2xl font-bold text-left">League of Leends Lane guide</h1>
+                                    <p className="mt-1">A website that helps League of Legends players choose the right strategy for a specific character using the OpenAI API to access GPT 4</p>
+                                </div>
+
                             </div>
                         </div>
                     </Fade>
