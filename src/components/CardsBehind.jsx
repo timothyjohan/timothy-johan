@@ -1,18 +1,14 @@
-import { useState } from "react";
-
 export default function CardsBehind(props){
-
     return(
-        <>
-            <div onClick={props.onclick} tabIndex={0} onBlur={() => setIsClicked(false)}  className={`max-w-xs rounded-xl shadow bg-[#222831] hover:scale-110 focus:opacity-0 focus:duration-300 transition duration-300 drop-shadow-md shadow-lg border border-zinc-800 bg-opacity-80`}>
-                <img class="rounded-t-lg" src={props.img} alt="" className="h-60 object-cover w-full rounded-t-xl" />
-
-                <div class="p-5">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{props.title}</h5>
-
-                    <p class="mb-3 font-normal text-gray-400">{props.desc}</p>
-                </div>
+        <div 
+            onClick={props.onclick} 
+            className="w-full h-full min-h-[300px] rounded-2xl cursor-pointer glass-card p-6 flex flex-col justify-between border-cyan-500/40 select-none bg-slate-900/90 shadow-xl transition-all duration-200"
+        >
+            <div>
+                <h3 className="text-xl font-bold text-cyan-400 mb-3 pb-2 border-b border-slate-800">{props.title}</h3>
+                <p className="text-gray-200 text-sm leading-relaxed">{props.desc}</p>
             </div>
-        </>
+        </div>
     )
 }
+
