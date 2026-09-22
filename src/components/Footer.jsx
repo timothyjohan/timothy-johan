@@ -6,7 +6,6 @@ export default function Footer() {
     return (
         <footer id="contact" className="bg-[#070b14] border-t border-slate-800/90 py-12 px-6 lg:px-12 text-gray-300">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-                {/* Direct Contact Links */}
                 <div className="space-y-4 text-center md:text-left">
                     <h2 className="text-2xl font-bold text-white tracking-tight">
                         Get In Touch
@@ -36,7 +35,6 @@ export default function Footer() {
                     </div>
                 </div>
 
-                {/* Back to Top & Legal */}
                 <div className="flex flex-col items-center md:items-end gap-3">
                     <button 
                         onClick={scrollToTop} 
@@ -48,8 +46,8 @@ export default function Footer() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
                         </svg>
                     </button>
-                    <p className="text-xs text-gray-500 mt-2">
-                        &copy; {new Date().getFullYear()} Timothy Johan. Crafted with intent.
+                    <p className="text-xs text-gray-400 mt-2">
+                        &copy; {new Date().getFullYear()} Timothy Johan. All rights reserved.
                     </p>
                 </div>
             </div>

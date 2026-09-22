@@ -1,21 +1,163 @@
-import { Fade } from "react-awesome-reveal";
-import Cards from "../components/Cards";
-import ReactCardFlip from "react-card-flip";
 import { useState, useEffect } from "react";
+import { Fade } from "react-awesome-reveal";
+import ReactCardFlip from "react-card-flip";
+import Cards from "../components/Cards";
 import CardsBehind from "../components/CardsBehind";
 
+const SOCIAL_LINKS = [
+    { name: "GitHub", href: "https://github.com/timothyjohan", icon: "/github.png", hoverBorder: "hover:border-slate-500" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/timothyjohan/", icon: "/linkedin.webp", hoverBorder: "hover:border-sky-400" },
+    { name: "LeetCode", href: "https://leetcode.com/u/timothyjohan11/", icon: "/leet-code.svg", hoverBorder: "hover:border-amber-400" }
+];
+
+const SKILL_PILLS = [
+    "React / Vite",
+    "Node.js / Express",
+    "Agentic AI & Tool Calling",
+    "Open-Source LLMs & Deployment",
+    "Third-Party API Integration",
+    "Model Tracing & Observability"
+];
+
+const STRENGTHS = [
+    {
+        title: "Fullstack Web",
+        accent: "bg-sky-400",
+        desc: "Modern SPAs and scalable backends using React, Vite, Node.js, Express, and MongoDB."
+    },
+    {
+        title: "AI Engineering",
+        accent: "bg-indigo-400",
+        desc: "Agentic AI workflows, open-source model deployment, third-party API integration, and execution tracing."
+    },
+    {
+        title: "UI/UX & Access",
+        accent: "bg-emerald-400",
+        desc: "Human-centered interfaces, accessible design systems, and responsive layouts."
+    },
+    {
+        title: "Awards & Skills",
+        accent: "bg-amber-400",
+        desc: "3rd Place UC Hackfest 2024, Google Cloud Certified, NVIDIA DLI Certified."
+    }
+];
+
+const SERVICES = [
+    {
+        title: "Web Design",
+        img: "/web-design.webp",
+        desc: "I design clean, modern web interfaces tailored to brand identities while ensuring structured typography, responsive layouts, and intuitive usability."
+    },
+    {
+        title: "Backend Web",
+        img: "/backend.png",
+        desc: "Engineering reliable API architectures, robust authentication systems, and database integrations with MongoDB, SQL, and Node.js."
+    },
+    {
+        title: "AI Engineering",
+        img: "/work_4.png",
+        desc: "Deploying open-source models, integrating third-party AI APIs, instrumenting telemetry tracing, and connecting custom inference endpoints into web applications."
+    },
+    {
+        title: "Agentic AI Workflows",
+        img: "/work_2.png",
+        desc: "Architecting autonomous AI agents, tool-calling pipelines, structured multi-agent collaboration, and custom task execution loops."
+    },
+    {
+        title: "Tutoring",
+        img: "/cat-using-laptop.jpg",
+        desc: "Providing structured programming tutoring, algorithms guidance, and web development fundamentals."
+    },
+    {
+        title: "Graphic Design",
+        img: "/graphic-design.webp",
+        desc: "Creating clean digital assets, branding collateral, icons, and structured visual assets."
+    },
+    {
+        title: "Video Production",
+        img: "/video-editting.webp",
+        desc: "Delivering video editing, title composition, pacing, color balance, and clear audio synchronization."
+    }
+];
+
+const TOOLS = [
+    {
+        name: "Photoshop",
+        type: "Design",
+        img: "/photoshop.png",
+        url: "https://www.adobe.com/products/photoshop.html",
+        hoverColor: "group-hover:text-sky-400"
+    },
+    {
+        name: "Premiere Pro",
+        type: "Video",
+        img: "/premiere-pro.png",
+        url: "https://www.adobe.com/id_en/products/premiere.html",
+        hoverColor: "group-hover:text-purple-400"
+    },
+    {
+        name: "VS Code",
+        type: "Code Editor",
+        img: "/visual-studio.png",
+        url: "https://code.visualstudio.com/",
+        hoverColor: "group-hover:text-sky-400"
+    },
+    {
+        name: "Android Studio",
+        type: "Mobile Dev",
+        img: "/android-studio.webp",
+        url: "https://developer.android.com/studio",
+        hoverColor: "group-hover:text-emerald-400"
+    }
+];
+
+const PROJECTS = [
+    {
+        title: "Bunkasai ISTTS Event Portal",
+        img: "/work_1.png",
+        tags: ["React", "Event Portal", "Vercel"],
+        desc: "A web portal facilitating competition registration, tenant management, and sponsorship proposal submissions for the Bunkasai ISTTS festival.",
+        liveUrl: "https://bunkasai-istts.vercel.app/",
+        githubUrl: null
+    },
+    {
+        title: "LoL Strategy AI Guide",
+        img: "/work_4.png",
+        tags: ["OpenAI API", "GPT-4"],
+        desc: "AI-assisted strategy guide utilizing GPT-4 to analyze champion matchups and tactical lane advice.",
+        liveUrl: null,
+        githubUrl: "https://github.com/timothyjohan/league-of-legends-lane-guide-backend"
+    },
+    {
+        title: "Mate Diary",
+        img: "/work_3.1.png",
+        tags: ["Fullstack", "Genealogy Tree"],
+        desc: "Platform for animal breeders to track breeding logs, health records, and dynamic lineage trees.",
+        liveUrl: null,
+        githubUrl: "https://github.com/timothyjohan/14_Cruixx_Mate-Diary"
+    },
+    {
+        title: "Besties Messenger",
+        img: "/work_2.png",
+        tags: ["Node / Express", "MongoDB"],
+        desc: "Functional chat messenger modeled after LINE, supporting real-time messaging and MongoDB data.",
+        liveUrl: null,
+        githubUrl: "https://github.com/timothyjohan/line_mockup_besties"
+    }
+];
 
 export default function Home() {
     const [isFlipped, setIsFlipped] = useState(Array(7).fill(false));
     const [previewImage, setPreviewImage] = useState(null);
 
     const handleClick = (index) => {
-        const newFlips = [...isFlipped];
-        newFlips[index] = !newFlips[index];
-        setIsFlipped(newFlips);
+        setIsFlipped((prev) => {
+            const next = [...prev];
+            next[index] = !next[index];
+            return next;
+        });
     };
 
-    // Close modal on Escape key press
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === "Escape" && previewImage) {
@@ -28,34 +170,33 @@ export default function Home() {
 
     return (
         <main className="pt-24 pb-20 overflow-x-hidden">
-            {/* Hero Banner */}
-            <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-24">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
-                    {/* Hero Image / Avatar Frame */}
+            <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-28">
+                <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-[500px] h-80 sm:h-[500px] bg-sky-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
                     <div className="md:col-span-5 flex justify-center order-1 md:order-2">
                         <Fade triggerOnce>
-                            <div className="relative">
-                                <div className="surface-card p-3 sm:p-4 rounded-3xl flex flex-col items-center justify-center shadow-xl">
+                            <div className="relative group">
+                                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-sky-500/30 to-indigo-500/20 blur opacity-40 group-hover:opacity-75 transition duration-500" />
+                                <div className="relative surface-card p-3 sm:p-4 rounded-3xl flex flex-col items-center justify-center border-slate-700/60 shadow-2xl">
                                     <img
                                         src="/timothy.webp"
                                         alt="Timothy Johan"
-                                        className="w-48 sm:w-64 md:w-72 lg:w-80 object-cover rounded-2xl shadow-lg"
+                                        className="w-52 sm:w-64 md:w-72 lg:w-80 object-cover rounded-2xl shadow-xl transition-transform duration-300 group-hover:scale-[1.01]"
                                     />
-                                    {/* Availability Status */}
-                                    <div className="mt-3 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-700/80 flex items-center gap-2">
-                                        <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                                        <span className="text-xs font-medium text-gray-300">Available for projects</span>
+                                    <div className="mt-3 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700 flex items-center gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                                        <span className="text-xs font-medium text-gray-200">Open to Projects & Roles</span>
                                     </div>
                                 </div>
                             </div>
                         </Fade>
                     </div>
 
-                    {/* Hero Text Content */}
                     <div className="md:col-span-7 text-center md:text-left space-y-6 order-2 md:order-1">
                         <Fade cascade triggerOnce>
-                            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg surface-card text-sky-400 text-xs font-semibold uppercase tracking-wider">
-                                Portfolio & Works
+                            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-semibold uppercase tracking-wider">
+                                Portfolio & Engineering
                             </div>
 
                             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
@@ -63,31 +204,30 @@ export default function Home() {
                             </h1>
 
                             <p className="text-lg sm:text-xl text-gray-300 font-medium leading-relaxed max-w-2xl">
-                                AI Engineer, Fullstack Web Developer, and UI/UX Designer crafting performant applications with intentional user experiences.
+                                AI Engineer, Fullstack Web Developer, and UI/UX Designer building agentic AI systems, deploying open-source models, and integrating third-party APIs into high-performance web applications.
                             </p>
 
-                            {/* Core Skill Pills */}
-                            <div className="flex flex-wrap gap-2 justify-center md:justify-start pt-1">
-                                <span className="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-sky-300 font-medium">React / Vite</span>
-                                <span className="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-sky-300 font-medium">Tailwind CSS</span>
-                                <span className="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-sky-300 font-medium">Node.js / Express</span>
-                                <span className="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-sky-300 font-medium">Machine Learning & LLMs</span>
+                            <div className="flex flex-wrap gap-2.5 justify-center md:justify-start pt-1">
+                                {SKILL_PILLS.map((pill) => (
+                                    <span key={pill} className="tag-pill px-3.5 py-1.5 rounded-lg text-xs text-sky-300 font-medium">
+                                        {pill}
+                                    </span>
+                                ))}
                             </div>
 
-                            {/* Hero Action Buttons */}
-                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-4">
+                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-3">
                                 <a
                                     href="#my_work"
-                                    className="px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm sm:text-base transition-all shadow-md flex items-center gap-2 focus-visible:rounded-xl"
+                                    className="px-6 py-3.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm sm:text-base transition-all shadow-lg shadow-sky-500/20 flex items-center gap-2 hover:-translate-y-0.5 focus-visible:rounded-xl"
                                 >
-                                    <span>View Featured Works</span>
+                                    <span>Explore Featured Works</span>
                                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                                     </svg>
                                 </a>
                                 <a
                                     href="#contact"
-                                    className="px-6 py-3 rounded-xl surface-card surface-card-hover text-gray-200 hover:text-white font-semibold text-sm sm:text-base transition-all flex items-center gap-2 focus-visible:rounded-xl"
+                                    className="px-6 py-3.5 rounded-xl surface-card surface-card-hover text-gray-200 hover:text-white font-semibold text-sm sm:text-base transition-all flex items-center gap-2 focus-visible:rounded-xl"
                                 >
                                     <span>Get In Touch</span>
                                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -100,93 +240,64 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Social Links / Find Me */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <Fade triggerOnce>
-                    <div className="surface-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto text-center">
-                        <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Profiles & Code Repositories</h2>
+                    <div className="surface-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto text-center border-slate-800">
+                        <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Profiles & Repositories</h2>
                         <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6">
-                            <a
-                                href="https://github.com/timothyjohan"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-3 px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-sky-400/50 transition-all group focus-visible:rounded-xl"
-                            >
-                                <img src="/github.png" alt="GitHub icon" className="w-6 h-6 object-contain" />
-                                <span className="text-sm font-semibold text-gray-200 group-hover:text-white">GitHub</span>
-                            </a>
-                            <a
-                                href="https://www.linkedin.com/in/timothyjohan/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-3 px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-sky-400/50 transition-all group focus-visible:rounded-xl"
-                            >
-                                <img src="/linkedin.webp" alt="LinkedIn icon" className="w-6 h-6 object-contain" />
-                                <span className="text-sm font-semibold text-gray-200 group-hover:text-white">LinkedIn</span>
-                            </a>
-                            <a
-                                href="https://leetcode.com/u/timothyjohan11/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-3 px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-sky-400/50 transition-all group focus-visible:rounded-xl"
-                            >
-                                <img src="/leet-code.svg" alt="LeetCode icon" className="w-6 h-6 object-contain" />
-                                <span className="text-sm font-semibold text-gray-200 group-hover:text-white">LeetCode</span>
-                            </a>
+                            {SOCIAL_LINKS.map((item) => (
+                                <a
+                                    key={item.name}
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`flex items-center gap-3 px-5 py-3 rounded-xl bg-slate-900/90 hover:bg-slate-800/90 border border-slate-800 ${item.hoverBorder} transition-all group focus-visible:rounded-xl shadow-sm hover:-translate-y-0.5`}
+                                >
+                                    <img src={item.icon} alt={`${item.name} icon`} className="w-6 h-6 object-contain group-hover:scale-110 transition-transform" />
+                                    <span className="text-sm font-semibold text-gray-200 group-hover:text-white">{item.name}</span>
+                                </a>
+                            ))}
                         </div>
                     </div>
                 </Fade>
             </section>
 
-            {/* About Me Section */}
             <section id="about_me" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-                    {/* Text Column */}
-                    <div className="lg:col-span-7 space-y-6">
+                    <div className="lg:col-span-6 space-y-6">
                         <Fade cascade triggerOnce>
                             <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
-                                About <span className="text-gradient">My Background</span>
+                                Engineering with <span className="text-gradient">Purpose & Craft</span>
                             </h2>
 
                             <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-                                I am an engineer focused on frontend web development, UI/UX architecture, and machine learning integration. I approach every build from the user perspective: making interfaces intuitive, accessible, and responsive across devices while writing maintainable, structured code.
+                                I specialize in frontend web development, user experience design, and machine learning integration. I approach every build from the user perspective: making interfaces intuitive, accessible, and fast across devices while writing structured, maintainable code.
                             </p>
 
                             <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-                                As a Computer Science student with practical experience in fullstack software engineering, I explore practical AI integration: connecting LLMs, agentic workflows, and predictive models to modern web platforms to create genuinely useful tools.
+                                With a background in Computer Science and hands-on engineering experience, I architect autonomous agentic AI workflows, deploy and maintain open-source models in production, integrate third-party APIs, and set up end-to-end tracing and telemetry pipelines.
                             </p>
                         </Fade>
                     </div>
 
-                    {/* Engineering Strengths Highlights Grid */}
-                    <div className="lg:col-span-5 space-y-4">
+                    <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <Fade cascade triggerOnce>
-                            <div className="surface-card p-5 rounded-2xl space-y-2">
-                                <h3 className="text-base font-bold text-sky-400">Fullstack Architecture</h3>
-                                <p className="text-sm text-gray-300 leading-relaxed">
-                                    Developing scalable web applications using React, Vite, Node.js, Express, and structured databases.
-                                </p>
-                            </div>
-
-                            <div className="surface-card p-5 rounded-2xl space-y-2">
-                                <h3 className="text-base font-bold text-sky-400">AI & Intelligent Systems</h3>
-                                <p className="text-sm text-gray-300 leading-relaxed">
-                                    Implementing agentic tool-use pipelines, prompt engineering, and machine learning models for real-world tasks.
-                                </p>
-                            </div>
-
-                            <div className="surface-card p-5 rounded-2xl space-y-2">
-                                <h3 className="text-base font-bold text-sky-400">User Interface & Accessibility</h3>
-                                <p className="text-sm text-gray-300 leading-relaxed">
-                                    Designing clean, accessible, and high-performance design systems prioritizing contrast and keyboard navigation.
-                                </p>
-                            </div>
+                            {STRENGTHS.map((strength) => (
+                                <div key={strength.title} className="surface-card p-5 rounded-2xl surface-card-hover space-y-2 border-slate-800">
+                                    <div className="flex items-center gap-2">
+                                        <span className={`w-2 h-2 rounded-full ${strength.accent}`} />
+                                        <h3 className="text-sm sm:text-base font-bold text-white">{strength.title}</h3>
+                                    </div>
+                                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                                        {strength.desc}
+                                    </p>
+                                </div>
+                            ))}
                         </Fade>
                     </div>
                 </div>
             </section>
 
-            {/* Services Section */}
             <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
                 <div className="text-center space-y-3 mb-12 sm:mb-16">
                     <Fade triggerOnce>
@@ -201,102 +312,56 @@ export default function Home() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     <Fade cascade direction="up" triggerOnce>
-                        <ReactCardFlip isFlipped={isFlipped[0]} flipDirection="horizontal" flipSpeedBack={0.3} flipSpeedFront={0.3}>
-                            <Cards onclick={() => handleClick(0)} title="Web Design" img="/web-design.webp" />
-                            <CardsBehind onclick={() => handleClick(0)} title="Web Design" desc="I design clean, modern web interfaces tailored to brand identities while ensuring structured typography, responsive layouts, and intuitive usability." />
-                        </ReactCardFlip>
-
-                        <ReactCardFlip isFlipped={isFlipped[1]} flipDirection="horizontal" flipSpeedBack={0.3} flipSpeedFront={0.3}>
-                            <Cards onclick={() => handleClick(1)} title="Backend Web" img="/backend.png" />
-                            <CardsBehind onclick={() => handleClick(1)} title="Backend Web" desc="Engineering reliable API architectures, robust authentication systems, and database integrations with MongoDB, SQL, and Node.js." />
-                        </ReactCardFlip>
-
-                        <ReactCardFlip isFlipped={isFlipped[2]} flipDirection="horizontal" flipSpeedBack={0.3} flipSpeedFront={0.3}>
-                            <Cards onclick={() => handleClick(2)} title="AI Engineering" img="/work_4.png" />
-                            <CardsBehind onclick={() => handleClick(2)} title="AI Engineering" desc="Integrating LLMs, neural networks, OpenAI APIs, and custom model endpoints into responsive web applications." />
-                        </ReactCardFlip>
-
-                        <ReactCardFlip isFlipped={isFlipped[3]} flipDirection="horizontal" flipSpeedBack={0.3} flipSpeedFront={0.3}>
-                            <Cards onclick={() => handleClick(3)} title="Agentic AI Workflows" img="/work_2.png" />
-                            <CardsBehind onclick={() => handleClick(3)} title="Agentic AI Workflows" desc="Building autonomous AI agents, tool-calling pipelines, RAG systems, and structured multi-agent workflows." />
-                        </ReactCardFlip>
-
-                        <ReactCardFlip isFlipped={isFlipped[4]} flipDirection="horizontal" flipSpeedBack={0.3} flipSpeedFront={0.3}>
-                            <Cards onclick={() => handleClick(4)} title="Technical Mentorship" img="/backend.png" />
-                            <CardsBehind onclick={() => handleClick(4)} title="Technical Mentorship" desc="Providing structured programming tutoring, algorithms guidance, and web development fundamentals." />
-                        </ReactCardFlip>
-
-                        <ReactCardFlip isFlipped={isFlipped[5]} flipDirection="horizontal" flipSpeedBack={0.3} flipSpeedFront={0.3}>
-                            <Cards onclick={() => handleClick(5)} title="Graphic Design" img="/graphic-design.webp" />
-                            <CardsBehind onclick={() => handleClick(5)} title="Graphic Design" desc="Creating clean digital assets, branding collateral, icons, and structured visual assets." />
-                        </ReactCardFlip>
-
-                        <ReactCardFlip isFlipped={isFlipped[6]} flipDirection="horizontal" flipSpeedBack={0.3} flipSpeedFront={0.3}>
-                            <Cards onclick={() => handleClick(6)} title="Video Production" img="/video-editting.webp" />
-                            <CardsBehind onclick={() => handleClick(6)} title="Video Production" desc="Delivering video editing, title composition, pacing, color balance, and clear audio synchronization." />
-                        </ReactCardFlip>
+                        {SERVICES.map((service, index) => (
+                            <ReactCardFlip
+                                key={service.title}
+                                isFlipped={isFlipped[index]}
+                                flipDirection="horizontal"
+                                flipSpeedBack={0.3}
+                                flipSpeedFront={0.3}
+                            >
+                                <Cards
+                                    onclick={() => handleClick(index)}
+                                    title={service.title}
+                                    img={service.img}
+                                />
+                                <CardsBehind
+                                    onclick={() => handleClick(index)}
+                                    title={service.title}
+                                    desc={service.desc}
+                                />
+                            </ReactCardFlip>
+                        ))}
                     </Fade>
                 </div>
             </section>
 
-            {/* Useful Apps & Tech Stack */}
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <Fade triggerOnce>
-                    <div className="surface-card rounded-3xl p-8 sm:p-12 text-center">
+                    <div className="surface-card rounded-3xl p-8 sm:p-12 text-center border-slate-800">
                         <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-8">
                             Development & Creative Tools
                         </h2>
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                            <a
-                                href="https://www.adobe.com/products/photoshop.html"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="surface-card p-6 rounded-2xl surface-card-hover flex flex-col items-center gap-3 group focus-visible:rounded-2xl"
-                                aria-label="Adobe Photoshop"
-                            >
-                                <img src="/photoshop.png" alt="Adobe Photoshop" className="w-12 h-12 object-contain group-hover:scale-105 transition-transform" />
-                                <span className="text-sm font-semibold text-gray-200">Photoshop</span>
-                                <span className="text-[11px] px-2 py-0.5 rounded-md bg-slate-900 text-gray-400 border border-slate-800">Design</span>
-                            </a>
-                            <a
-                                href="https://www.adobe.com/id_en/products/premiere.html"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="surface-card p-6 rounded-2xl surface-card-hover flex flex-col items-center gap-3 group focus-visible:rounded-2xl"
-                                aria-label="Adobe Premiere Pro"
-                            >
-                                <img src="/premiere-pro.png" alt="Adobe Premiere Pro" className="w-12 h-12 object-contain group-hover:scale-105 transition-transform" />
-                                <span className="text-sm font-semibold text-gray-200">Premiere Pro</span>
-                                <span className="text-[11px] px-2 py-0.5 rounded-md bg-slate-900 text-gray-400 border border-slate-800">Video</span>
-                            </a>
-                            <a
-                                href="https://code.visualstudio.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="surface-card p-6 rounded-2xl surface-card-hover flex flex-col items-center gap-3 group focus-visible:rounded-2xl"
-                                aria-label="Visual Studio Code"
-                            >
-                                <img src="/visual-studio.png" alt="VS Code" className="w-12 h-12 object-contain group-hover:scale-105 transition-transform" />
-                                <span className="text-sm font-semibold text-gray-200">VS Code</span>
-                                <span className="text-[11px] px-2 py-0.5 rounded-md bg-slate-900 text-gray-400 border border-slate-800">Code Editor</span>
-                            </a>
-                            <a
-                                href="https://developer.android.com/studio"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="surface-card p-6 rounded-2xl surface-card-hover flex flex-col items-center gap-3 group focus-visible:rounded-2xl"
-                                aria-label="Android Studio"
-                            >
-                                <img src="/android-studio.webp" alt="Android Studio" className="w-12 h-12 object-contain group-hover:scale-105 transition-transform" />
-                                <span className="text-sm font-semibold text-gray-200">Android Studio</span>
-                                <span className="text-[11px] px-2 py-0.5 rounded-md bg-slate-900 text-gray-400 border border-slate-800">Mobile Dev</span>
-                            </a>
+                            {TOOLS.map((tool) => (
+                                <a
+                                    key={tool.name}
+                                    href={tool.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="surface-card p-6 rounded-2xl surface-card-hover flex flex-col items-center gap-3 group focus-visible:rounded-2xl"
+                                    aria-label={tool.name}
+                                >
+                                    <img src={tool.img} alt={tool.name} className="w-12 h-12 object-contain group-hover:scale-110 transition-transform" />
+                                    <span className={`text-sm font-semibold text-gray-200 ${tool.hoverColor} transition-colors`}>{tool.name}</span>
+                                    <span className="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-900 text-gray-400 border border-slate-800">{tool.type}</span>
+                                </a>
+                            ))}
                         </div>
                     </div>
                 </Fade>
             </section>
 
-            {/* Featured Works Section */}
             <section id="my_work" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
                 <div className="text-center space-y-3 mb-12 sm:mb-16">
                     <Fade triggerOnce>
@@ -309,178 +374,74 @@ export default function Home() {
                     </Fade>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-                    {/* Work Item 1 */}
-                    <Fade direction="up" triggerOnce>
-                        <div className="surface-card rounded-2xl overflow-hidden surface-card-hover flex flex-col justify-between group">
-                            <div>
-                                <div className="relative overflow-hidden h-56 sm:h-64 bg-slate-950">
-                                    <img
-                                        src="/work_1.png"
-                                        alt="Bunkasai ISTTS Website Screenshot"
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                    />
-                                </div>
-                                <div className="p-6 space-y-3">
-                                    <div className="flex flex-wrap gap-2">
-                                        <span className="text-[11px] px-2.5 py-1 rounded-md bg-slate-900 text-sky-300 font-medium border border-slate-800">React</span>
-                                        <span className="text-[11px] px-2.5 py-1 rounded-md bg-slate-900 text-sky-300 font-medium border border-slate-800">Event Portal</span>
-                                        <span className="text-[11px] px-2.5 py-1 rounded-md bg-slate-900 text-sky-300 font-medium border border-slate-800">Vercel</span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                    <Fade cascade direction="up" triggerOnce>
+                        {PROJECTS.map((project) => (
+                            <div
+                                key={project.title}
+                                className="surface-card rounded-2xl overflow-hidden surface-card-hover flex flex-col justify-between group border-slate-800"
+                            >
+                                <div>
+                                    <div className="relative overflow-hidden h-52 sm:h-60 bg-slate-950">
+                                        <img
+                                            src={project.img}
+                                            alt={project.title}
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
                                     </div>
-                                    <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-sky-400 transition-colors">
-                                        Bunkasai ISTTS Website
-                                    </h3>
-                                    <p className="text-gray-300 text-sm leading-relaxed">
-                                        A comprehensive event portal facilitating competition registration, tenant management, and sponsorship proposal submissions for Bunkasai ISTTS.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="p-6 pt-0">
-                                <a
-                                    href="https://bunkasai-istts.vercel.app/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors focus-visible:rounded"
-                                >
-                                    <span>Visit Live Website</span>
-                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </Fade>
-
-                    {/* Work Item 2 */}
-                    <Fade direction="up" triggerOnce>
-                        <div className="surface-card rounded-2xl overflow-hidden surface-card-hover flex flex-col justify-between group">
-                            <div>
-                                <div className="relative overflow-hidden h-56 sm:h-64 bg-slate-950">
-                                    <img
-                                        src="/work_2.png"
-                                        alt="Besties Chat Messenger Screenshot"
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                    />
-                                </div>
-                                <div className="p-6 space-y-3">
-                                    <div className="flex flex-wrap gap-2">
-                                        <span className="text-[11px] px-2.5 py-1 rounded-md bg-slate-900 text-sky-300 font-medium border border-slate-800">MongoDB</span>
-                                        <span className="text-[11px] px-2.5 py-1 rounded-md bg-slate-900 text-sky-300 font-medium border border-slate-800">Express / Node</span>
-                                        <span className="text-[11px] px-2.5 py-1 rounded-md bg-slate-900 text-sky-300 font-medium border border-slate-800">UI Mockup</span>
+                                    <div className="p-6 space-y-3">
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {project.tags.map((tag) => (
+                                                <span
+                                                    key={tag}
+                                                    className="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-900 text-sky-300 font-medium border border-slate-800"
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
+                                            {project.title}
+                                        </h3>
+                                        <p className="text-gray-300 text-sm leading-relaxed">
+                                            {project.desc}
+                                        </p>
                                     </div>
-                                    <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-sky-400 transition-colors">
-                                        Besties Chat Messenger
-                                    </h3>
-                                    <p className="text-gray-300 text-sm leading-relaxed">
-                                        A functional chat messenger app modeled after LINE, supporting real-time messaging structures, session handling, and MongoDB storage.
-                                    </p>
+                                </div>
+                                <div className="p-6 pt-0 flex items-center gap-3">
+                                    {project.liveUrl && (
+                                        <a
+                                            href={project.liveUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-300 hover:bg-sky-500/20 hover:border-sky-400 transition-all text-xs font-bold focus-visible:rounded"
+                                        >
+                                            <span>Visit Live Website</span>
+                                            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                        </a>
+                                    )}
+                                    {project.githubUrl && (
+                                        <a
+                                            href={project.githubUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors focus-visible:rounded py-1"
+                                        >
+                                            <span>View Source Code</span>
+                                            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                        </a>
+                                    )}
                                 </div>
                             </div>
-
-                            <div className="p-6 pt-0">
-                                <a
-                                    href="https://github.com/timothyjohan/line_mockup_besties"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors focus-visible:rounded"
-                                >
-                                    <span>View Source Code</span>
-                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </Fade>
-
-                    {/* Work Item 3 */}
-                    <Fade direction="up" triggerOnce>
-                        <div className="surface-card rounded-2xl overflow-hidden surface-card-hover flex flex-col justify-between group">
-                            <div>
-                                <div className="relative overflow-hidden h-56 sm:h-64 bg-slate-950">
-                                    <img
-                                        src="/work_3.1.png"
-                                        alt="Mate Diary Screenshot"
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                    />
-                                </div>
-                                <div className="p-6 space-y-3">
-                                    <div className="flex flex-wrap gap-2">
-                                        <span className="text-[11px] px-2.5 py-1 rounded-md bg-slate-900 text-sky-300 font-medium border border-slate-800">Fullstack</span>
-                                        <span className="text-[11px] px-2.5 py-1 rounded-md bg-slate-900 text-sky-300 font-medium border border-slate-800">Breeding Schedules</span>
-                                        <span className="text-[11px] px-2.5 py-1 rounded-md bg-slate-900 text-sky-300 font-medium border border-slate-800">Genealogy Tree</span>
-                                    </div>
-                                    <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-sky-400 transition-colors">
-                                        Mate Diary
-                                    </h3>
-                                    <p className="text-gray-300 text-sm leading-relaxed">
-                                        A specialized web platform designed for animal breeders to track breeding schedules, review history logs, and generate interactive family lineage trees.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="p-6 pt-0">
-                                <a
-                                    href="https://github.com/timothyjohan/14_Cruixx_Mate-Diary"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors focus-visible:rounded"
-                                >
-                                    <span>View Source Code</span>
-                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </Fade>
-
-                    {/* Work Item 4 */}
-                    <Fade direction="up" triggerOnce>
-                        <div className="surface-card rounded-2xl overflow-hidden surface-card-hover flex flex-col justify-between group">
-                            <div>
-                                <div className="relative overflow-hidden h-56 sm:h-64 bg-slate-950">
-                                    <img
-                                        src="/work_4.png"
-                                        alt="League of Legends Strategy AI Guide Screenshot"
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                    />
-                                </div>
-                                <div className="p-6 space-y-3">
-                                    <div className="flex flex-wrap gap-2">
-                                        <span className="text-[11px] px-2.5 py-1 rounded-md bg-slate-900 text-sky-300 font-medium border border-slate-800">OpenAI API</span>
-                                        <span className="text-[11px] px-2.5 py-1 rounded-md bg-slate-900 text-sky-300 font-medium border border-slate-800">GPT-4</span>
-                                        <span className="text-[11px] px-2.5 py-1 rounded-md bg-slate-900 text-sky-300 font-medium border border-slate-800">Matchup Analysis</span>
-                                    </div>
-                                    <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-sky-400 transition-colors">
-                                        LoL Strategy AI Guide
-                                    </h3>
-                                    <p className="text-gray-300 text-sm leading-relaxed">
-                                        An AI-assisted strategy guide web app for League of Legends players, utilizing GPT-4 to analyze champion matchups and offer real-time tactical advice.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="p-6 pt-0">
-                                <a
-                                    href="https://github.com/timothyjohan/league-of-legends-lane-guide-backend"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors focus-visible:rounded"
-                                >
-                                    <span>View Source Code</span>
-                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
+                        ))}
                     </Fade>
                 </div>
             </section>
 
-            {/* Certifications & Honors Section */}
             <section id="certifications" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
                 <div className="text-center space-y-3 mb-12 sm:mb-16">
                     <Fade triggerOnce>
@@ -495,11 +456,10 @@ export default function Home() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                     <Fade cascade direction="up" triggerOnce>
-                        {/* 1. Google Cloud */}
-                        <div className="surface-card rounded-2xl p-6 surface-card-hover flex flex-col justify-between space-y-4">
+                        <div className="surface-card rounded-2xl p-6 surface-card-hover flex flex-col justify-between space-y-4 border-slate-800">
                             <div className="space-y-3">
                                 <div className="flex items-start justify-between gap-4">
-                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-2 flex-shrink-0">
+                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-2 flex-shrink-0 shadow-sm">
                                         <svg className="w-7 h-7" viewBox="0 0 24 24">
                                             <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
                                             <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"/>
@@ -543,11 +503,10 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* 2. NVIDIA Deep Learning */}
-                        <div className="surface-card rounded-2xl p-6 surface-card-hover flex flex-col justify-between space-y-4">
+                        <div className="surface-card rounded-2xl p-6 surface-card-hover flex flex-col justify-between space-y-4 border-slate-800">
                             <div className="space-y-3">
                                 <div className="flex items-start justify-between gap-4">
-                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-2 flex-shrink-0">
+                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-2 flex-shrink-0 shadow-sm">
                                         <img src="/nvidia_logo_icon.webp" alt="NVIDIA logo" className="w-8 h-8 object-contain" />
                                     </div>
                                     <span className="text-xs text-gray-400 font-medium px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800">
@@ -586,11 +545,10 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* 3. Red Hat RH124 */}
-                        <div className="surface-card rounded-2xl p-6 surface-card-hover flex flex-col justify-between space-y-4">
+                        <div className="surface-card rounded-2xl p-6 surface-card-hover flex flex-col justify-between space-y-4 border-slate-800">
                             <div className="space-y-3">
                                 <div className="flex items-start justify-between gap-4">
-                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-2 flex-shrink-0">
+                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-2 flex-shrink-0 shadow-sm">
                                         <svg className="w-7 h-7" viewBox="0 0 24 24" fill="#EE0000">
                                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5h-2v-2h2v2zm0-4h-2V7h2v5.5z"/>
                                         </svg>
@@ -612,7 +570,6 @@ export default function Home() {
                                     <span className="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-900 text-sky-300 border border-slate-800">Red Hat Linux</span>
                                 </div>
 
-                                {/* Certificate Preview Thumbnail */}
                                 <button
                                     type="button"
                                     onClick={() => setPreviewImage({ src: "/redhat_timothy.png", title: "Red Hat System Administration I (RH124) Certificate" })}
@@ -641,11 +598,10 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* 4. UC Hackfest */}
-                        <div className="surface-card rounded-2xl p-6 surface-card-hover flex flex-col justify-between space-y-4">
+                        <div className="surface-card rounded-2xl p-6 surface-card-hover flex flex-col justify-between space-y-4 border-slate-800">
                             <div className="space-y-3">
                                 <div className="flex items-start justify-between gap-4">
-                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-2 flex-shrink-0 text-amber-400">
+                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-2 flex-shrink-0 text-amber-400 shadow-sm">
                                         <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                                             <path d="M12 2l2.4 4.86 5.36.78-3.88 3.78.92 5.34-4.8-2.52-4.8 2.52.92-5.34-3.88-3.78 5.36-.78L12 2z"/>
                                         </svg>
@@ -667,7 +623,6 @@ export default function Home() {
                                     <span className="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-900 text-sky-300 border border-slate-800">Web Design</span>
                                 </div>
 
-                                {/* Hackathon Certificate Preview Thumbnail */}
                                 <button
                                     type="button"
                                     onClick={() => setPreviewImage({ src: "/UC_Hackathon.jpg", title: "3rd Place in UC's Hackfest 2024 Certificate" })}
@@ -696,11 +651,10 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* 5. Kaggle Intro to Machine Learning */}
-                        <div className="surface-card rounded-2xl p-6 surface-card-hover flex flex-col justify-between space-y-4">
+                        <div className="surface-card rounded-2xl p-6 surface-card-hover flex flex-col justify-between space-y-4 border-slate-800">
                             <div className="space-y-3">
                                 <div className="flex items-start justify-between gap-4">
-                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-2 flex-shrink-0">
+                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-2 flex-shrink-0 shadow-sm">
                                         <svg className="w-7 h-7" viewBox="0 0 24 24" fill="#20BEFF">
                                             <path d="M18.825 23.859c-.022.092-.117.141-.283.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.181c0 .195-.084.282-.252.282H5.163c-.168 0-.252-.087-.252-.282V.283c0-.188.084-.283.252-.283h2.87c.168 0 .252.095.252.283v14.475l6.34-6.339c.141-.141.29-.212.449-.212h3.29c.168 0 .252.071.252.212 0 .092-.045.174-.135.248l-6.852 6.702 7.378 8.21c.092.092.12.185.088.283z"/>
                                         </svg>
@@ -738,11 +692,10 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* 6. Kaggle Python */}
-                        <div className="surface-card rounded-2xl p-6 surface-card-hover flex flex-col justify-between space-y-4">
+                        <div className="surface-card rounded-2xl p-6 surface-card-hover flex flex-col justify-between space-y-4 border-slate-800">
                             <div className="space-y-3">
                                 <div className="flex items-start justify-between gap-4">
-                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-2 flex-shrink-0">
+                                    <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-2 flex-shrink-0 shadow-sm">
                                         <svg className="w-7 h-7" viewBox="0 0 24 24" fill="#20BEFF">
                                             <path d="M18.825 23.859c-.022.092-.117.141-.283.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.181c0 .195-.084.282-.252.282H5.163c-.168 0-.252-.087-.252-.282V.283c0-.188.084-.283.252-.283h2.87c.168 0 .252.095.252.283v14.475l6.34-6.339c.141-.141.29-.212.449-.212h3.29c.168 0 .252.071.252.212 0 .092-.045.174-.135.248l-6.852 6.702 7.378 8.21c.092.092.12.185.088.283z"/>
                                         </svg>
@@ -783,17 +736,16 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Certificate Image Preview Modal */}
             {previewImage && (
                 <div
-                    className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+                    className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
                     onClick={() => setPreviewImage(null)}
                     role="dialog"
                     aria-modal="true"
                     aria-label={previewImage.title}
                 >
                     <div
-                        className="relative surface-card p-4 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl"
+                        className="relative surface-card p-4 sm:p-6 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl border-slate-700"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex items-center justify-between pb-3 mb-2 border-b border-slate-800">
@@ -802,7 +754,7 @@ export default function Home() {
                             </h3>
                             <button
                                 onClick={() => setPreviewImage(null)}
-                                className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-slate-800 transition-colors focus-visible:rounded"
+                                className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-slate-800 transition-colors focus-visible:ring-2 focus-visible:ring-sky-400"
                                 aria-label="Close certificate preview modal"
                             >
                                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -810,11 +762,11 @@ export default function Home() {
                                 </svg>
                             </button>
                         </div>
-                        <div className="flex-1 overflow-auto flex items-center justify-center p-2 bg-slate-950/50 rounded-xl">
+                        <div className="flex-1 overflow-auto flex items-center justify-center p-2 bg-slate-950/70 rounded-xl">
                             <img
                                 src={previewImage.src}
                                 alt={previewImage.title}
-                                className="max-h-[75vh] w-auto object-contain rounded-lg shadow-lg"
+                                className="max-h-[75vh] w-auto object-contain rounded-lg shadow-xl"
                             />
                         </div>
                     </div>

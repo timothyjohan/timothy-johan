@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 
+const NAV_LINKS = [
+    { name: "About Me", href: "#about_me" },
+    { name: "Services", href: "#services" },
+    { name: "Featured Works", href: "#my_work" },
+    { name: "Certifications", href: "#certifications" }
+];
+
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
-    // Close mobile menu on Escape key press
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === "Escape" && isOpen) {
@@ -18,7 +24,6 @@ export default function Navbar() {
         <nav className="fixed top-0 left-0 right-0 z-50 site-header transition-all duration-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
-                    {/* Brand Identity */}
                     <a 
                         href="#" 
                         className="flex items-center gap-3 group focus-visible:rounded-lg"
@@ -32,12 +37,16 @@ export default function Navbar() {
                         </span>
                     </a>
 
-                    {/* Desktop Navigation Links */}
                     <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-300">
-                        <a href="#about_me" className="hover:text-sky-400 transition-colors py-2 focus-visible:rounded">About Me</a>
-                        <a href="#services" className="hover:text-sky-400 transition-colors py-2 focus-visible:rounded">Services</a>
-                        <a href="#my_work" className="hover:text-sky-400 transition-colors py-2 focus-visible:rounded">Featured Works</a>
-                        <a href="#certifications" className="hover:text-sky-400 transition-colors py-2 focus-visible:rounded">Certifications</a>
+                        {NAV_LINKS.map((link) => (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                className="hover:text-sky-400 transition-colors py-2 focus-visible:rounded"
+                            >
+                                {link.name}
+                            </a>
+                        ))}
                         <a 
                             href="#contact" 
                             className="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sky-300 hover:bg-slate-800 hover:border-sky-400 transition-all shadow-sm focus-visible:rounded-xl"
@@ -46,7 +55,6 @@ export default function Navbar() {
                         </a>
                     </div>
 
-                    {/* Mobile Menu Button */}
                     <button 
                         onClick={() => setIsOpen(!isOpen)}
                         type="button" 
@@ -68,37 +76,18 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile Navigation Drawer */}
             {isOpen && (
                 <div className="md:hidden bg-[#0d1424] border-t border-slate-800 px-4 pt-4 pb-6 space-y-3 shadow-2xl" id="mobile-menu">
-                    <a 
-                        href="#about_me" 
-                        onClick={() => setIsOpen(false)} 
-                        className="block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-slate-800 hover:text-sky-400 transition-all"
-                    >
-                        About Me
-                    </a>
-                    <a 
-                        href="#services" 
-                        onClick={() => setIsOpen(false)} 
-                        className="block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-slate-800 hover:text-sky-400 transition-all"
-                    >
-                        Services
-                    </a>
-                    <a 
-                        href="#my_work" 
-                        onClick={() => setIsOpen(false)} 
-                        className="block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-slate-800 hover:text-sky-400 transition-all"
-                    >
-                        Featured Works
-                    </a>
-                    <a 
-                        href="#certifications" 
-                        onClick={() => setIsOpen(false)} 
-                        className="block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-slate-800 hover:text-sky-400 transition-all"
-                    >
-                        Certifications
-                    </a>
+                    {NAV_LINKS.map((link) => (
+                        <a 
+                            key={link.name}
+                            href={link.href} 
+                            onClick={() => setIsOpen(false)} 
+                            className="block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-slate-800 hover:text-sky-400 transition-all"
+                        >
+                            {link.name}
+                        </a>
+                    ))}
                     <a 
                         href="#contact" 
                         onClick={() => setIsOpen(false)} 
